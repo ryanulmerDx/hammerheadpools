@@ -14,23 +14,30 @@ export function Footer() {
           <div className="lg:col-span-1">
             {/* Full logo — mascot in white circle + wordmark */}
             <div className="flex items-center gap-3 mb-4">
-              <div className="h-14 w-14 rounded-full bg-white overflow-hidden flex-shrink-0 shadow-md shadow-water-cyan/15">
+              <div className="h-14 w-14 rounded-full overflow-hidden flex-shrink-0">
                 <Image
                   src="/logo-mascot.webp"
                   alt="HammerHead Pools mascot"
                   width={56}
                   height={56}
                   className="w-full h-full object-cover object-top"
+                  style={{ mixBlendMode: 'multiply' }}
                 />
               </div>
-              <Image
-                src="/logo-wordmark.webp"
-                alt="HammerHead Pools"
-                width={160}
-                height={52}
-                className="h-10 w-auto object-contain"
-                style={{ filter: 'brightness(0) invert(1)' }}
-              />
+              <div>
+                <p
+                  className="text-base font-extrabold text-white tracking-widest leading-none"
+                  style={{ fontFamily: 'var(--font-outfit)' }}
+                >
+                  HAMMERHEAD
+                </p>
+                <p
+                  className="text-[11px] font-semibold tracking-[0.4em] text-water-cyan mt-0.5"
+                  style={{ fontFamily: 'var(--font-outfit)' }}
+                >
+                  POOLS
+                </p>
+              </div>
             </div>
             <p className="text-sm text-sky-light/60 leading-relaxed max-w-xs">
               Locally-owned Arizona pool maintenance and repair. We keep your
