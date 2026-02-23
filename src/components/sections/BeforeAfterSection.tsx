@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 
@@ -142,7 +143,7 @@ export function BeforeAfterSection() {
             </div>
           </div>
 
-          {/* AFTER layer — crystal clear pool (clip-path animated) */}
+          {/* AFTER layer — real clean pool photo (clip-path animated) */}
           <div
             ref={cleanLayerRef}
             className="absolute inset-0"
@@ -151,30 +152,12 @@ export function BeforeAfterSection() {
               willChange: 'clip-path',
             }}
           >
-            {/* CSS gradient simulating a pristine pool */}
-            <div
-              className="w-full h-full"
-              style={{
-                background:
-                  'linear-gradient(160deg, #0d3b6e 0%, #1a5f9e 20%, #22d3ee 50%, #00c6fb 75%, #0d3b6e 100%)',
-              }}
-            />
-            {/* Caustic light pattern */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  'radial-gradient(ellipse at 40% 35%, rgba(34,211,238,0.4) 0%, transparent 50%), radial-gradient(ellipse at 65% 65%, rgba(0,198,251,0.3) 0%, transparent 40%)',
-              }}
-            />
-            {/* Subtle wave shimmer */}
-            <div
-              className="absolute inset-0 opacity-20"
-              style={{
-                backgroundImage:
-                  'repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.15) 40px, rgba(255,255,255,0.15) 41px)',
-                transform: 'rotate(-8deg) scale(1.2)',
-              }}
+            <Image
+              src="/pool-clean.jpg"
+              alt="Crystal clear pool after HammerHead service"
+              fill
+              className="object-cover"
+              sizes="100vw"
             />
             {/* After label */}
             <div className="absolute top-5 right-5">

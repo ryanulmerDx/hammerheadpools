@@ -5,17 +5,24 @@ import Image from 'next/image';
 import { gsap } from '@/lib/gsap';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 
-// Gallery images — using picsum with pool-themed seeds for consistent results
-const GALLERY_IMAGES = [
-  { id: 1, seed: 'pool1', caption: 'Crystal clear after weekly maintenance', category: 'maintenance' },
-  { id: 2, seed: 'pool2', caption: 'Fresh acid wash — like new again', category: 'cleaning' },
-  { id: 3, seed: 'pool3', caption: 'Equipment inspection & repair', category: 'repairs' },
-  { id: 4, seed: 'pool4', caption: 'Algae treatment complete', category: 'cleaning' },
-  { id: 5, seed: 'pool5', caption: 'Perfect chemical balance', category: 'maintenance' },
-  { id: 6, seed: 'pool6', caption: 'Filter clean & service', category: 'repairs' },
-  { id: 7, seed: 'pool7', caption: 'After chlorine wash treatment', category: 'cleaning' },
-  { id: 8, seed: 'pool8', caption: 'Pump replacement complete', category: 'repairs' },
-  { id: 9, seed: 'pool9', caption: 'Swim-ready for the weekend', category: 'maintenance' },
+type GalleryImage = {
+  id: number;
+  caption: string;
+  category: string;
+  src?: string;
+  seed?: string;
+};
+
+const GALLERY_IMAGES: GalleryImage[] = [
+  { id: 1, src: '/photo-skimming.png', caption: 'Weekly skimming & surface cleaning', category: 'maintenance' },
+  { id: 2, src: '/pool-clean.jpg', caption: 'Crystal clear after HammerHead service', category: 'maintenance' },
+  { id: 3, src: '/photo-repairs.png', caption: 'Equipment repair & pump service', category: 'repairs' },
+  { id: 4, src: '/photo-water-testing.png', caption: 'Chemical testing & water balancing', category: 'maintenance' },
+  { id: 5, seed: 'aquapool5', caption: 'Green pool cleanup — algae treatment', category: 'cleaning' },
+  { id: 6, seed: 'aquapool6', caption: 'Filter clean & cartridge service', category: 'repairs' },
+  { id: 7, seed: 'aquapool7', caption: 'After chlorine wash treatment', category: 'cleaning' },
+  { id: 8, seed: 'aquapool8', caption: 'Pump replacement complete', category: 'repairs' },
+  { id: 9, seed: 'aquapool9', caption: 'Swim-ready for the weekend', category: 'maintenance' },
 ];
 
 const CATEGORIES = ['all', 'maintenance', 'cleaning', 'repairs'];
@@ -121,7 +128,7 @@ export default function GalleryPage() {
                 onClick={() => setLightboxImage(i)}
               >
                 <Image
-                  src={`https://picsum.photos/seed/${img.seed}/800/600`}
+                  src={img.src ?? `https://picsum.photos/seed/${img.seed}/800/600`}
                   alt={img.caption}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -188,7 +195,7 @@ export default function GalleryPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={`https://picsum.photos/seed/${filtered[lightboxImage]?.seed}/1200/900`}
+              src={filtered[lightboxImage]?.src ?? `https://picsum.photos/seed/${filtered[lightboxImage]?.seed}/1200/900`}
               alt={filtered[lightboxImage]?.caption ?? ''}
               fill
               className="object-cover rounded-xl"

@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { gsap } from '@/lib/gsap';
 import { RippleButton } from '@/components/ui/RippleButton';
 import { SectionLabel } from '@/components/ui/SectionLabel';
@@ -100,28 +101,39 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Visual card */}
+          {/* Photo card */}
           <div
             ref={(el) => { if (el) sectionsRef.current[1] = el; }}
-            className="glass-card rounded-2xl p-10"
+            className="relative rounded-2xl overflow-hidden"
+            style={{ minHeight: '380px' }}
           >
-            <div className="grid grid-cols-2 gap-6">
-              {STATS.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div
-                    className="text-4xl font-extrabold text-gradient-water"
-                    style={{ fontFamily: 'var(--font-outfit)' }}
-                  >
-                    {stat.suffix === '$' ? `$${stat.value}` : `${stat.value}${stat.suffix ?? ''}`}
+            <Image
+              src="/photo-repairs.png"
+              alt="Josh servicing pool equipment"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            {/* Stats overlay at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-pool-deep/95 to-transparent p-6">
+              <div className="grid grid-cols-2 gap-4">
+                {STATS.slice(0, 4).map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <div
+                      className="text-2xl font-extrabold text-gradient-water"
+                      style={{ fontFamily: 'var(--font-outfit)' }}
+                    >
+                      {stat.suffix === '$' ? `$${stat.value}` : `${stat.value}${stat.suffix ?? ''}`}
+                    </div>
+                    <p
+                      className="mt-0.5 text-[10px] uppercase tracking-wide"
+                      style={{ color: 'rgba(224,242,254,0.55)', fontFamily: 'var(--font-outfit)' }}
+                    >
+                      {stat.label}
+                    </p>
                   </div>
-                  <p
-                    className="mt-1 text-xs uppercase tracking-wide"
-                    style={{ color: 'rgba(224,242,254,0.5)', fontFamily: 'var(--font-outfit)' }}
-                  >
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
