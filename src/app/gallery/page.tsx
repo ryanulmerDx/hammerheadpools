@@ -7,22 +7,21 @@ import { SectionLabel } from '@/components/ui/SectionLabel';
 
 type GalleryImage = {
   id: number;
+  src: string;
   caption: string;
   category: string;
-  src?: string;
-  seed?: string;
 };
 
 const GALLERY_IMAGES: GalleryImage[] = [
-  { id: 1, src: '/photo-skimming.png', caption: 'Weekly skimming & surface cleaning', category: 'maintenance' },
-  { id: 2, src: '/pool-clean.jpg', caption: 'Crystal clear after HammerHead service', category: 'maintenance' },
-  { id: 3, src: '/photo-repairs.png', caption: 'Equipment repair & pump service', category: 'repairs' },
-  { id: 4, src: '/photo-water-testing.png', caption: 'Chemical testing & water balancing', category: 'maintenance' },
-  { id: 5, seed: 'aquapool5', caption: 'Green pool cleanup — algae treatment', category: 'cleaning' },
-  { id: 6, seed: 'aquapool6', caption: 'Filter clean & cartridge service', category: 'repairs' },
-  { id: 7, seed: 'aquapool7', caption: 'After chlorine wash treatment', category: 'cleaning' },
-  { id: 8, seed: 'aquapool8', caption: 'Pump replacement complete', category: 'repairs' },
-  { id: 9, seed: 'aquapool9', caption: 'Swim-ready for the weekend', category: 'maintenance' },
+  { id: 1, src: '/josh-water-testing.webp',  caption: 'Chemical testing & water balancing',         category: 'maintenance' },
+  { id: 2, src: '/pool-after-luxury.webp',   caption: 'Luxury pool — sparkling after service',      category: 'maintenance' },
+  { id: 3, src: '/pool-after-1.webp',        caption: 'Crystal clear after HammerHead service',     category: 'maintenance' },
+  { id: 4, src: '/pool-before-green.webp',   caption: 'Green algae pool — before treatment',        category: 'cleaning'     },
+  { id: 5, src: '/pool-before-algae.webp',   caption: 'Heavy algae buildup — before treatment',     category: 'cleaning'     },
+  { id: 6, src: '/josh-filter-service.jpg',  caption: 'Filter cartridge removal & replacement',     category: 'repairs'      },
+  { id: 7, src: '/filters-comparison.webp',  caption: 'Filter clean: fresh vs end-of-life',         category: 'repairs'      },
+  { id: 8, src: '/filters-dirty.webp',       caption: 'Worn filters removed for deep cleaning',     category: 'repairs'      },
+  { id: 9, src: '/filters-clean.webp',       caption: 'Fresh-cleaned cartridges ready to reinstall',category: 'repairs'      },
 ];
 
 const CATEGORIES = ['all', 'maintenance', 'cleaning', 'repairs'];
@@ -128,7 +127,7 @@ export default function GalleryPage() {
                 onClick={() => setLightboxImage(i)}
               >
                 <Image
-                  src={img.src ?? `https://picsum.photos/seed/${img.seed}/800/600`}
+                  src={img.src}
                   alt={img.caption}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -195,7 +194,7 @@ export default function GalleryPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={filtered[lightboxImage]?.src ?? `https://picsum.photos/seed/${filtered[lightboxImage]?.seed}/1200/900`}
+              src={filtered[lightboxImage]?.src ?? ''}
               alt={filtered[lightboxImage]?.caption ?? ''}
               fill
               className="object-cover rounded-xl"

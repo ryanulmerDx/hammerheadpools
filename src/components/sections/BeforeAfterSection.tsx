@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { gsap, ScrollTrigger } from '@/lib/gsap';
+import { gsap } from '@/lib/gsap';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 
 export function BeforeAfterSection() {
@@ -99,32 +99,14 @@ export function BeforeAfterSection() {
         {/* Before/After container */}
         <div className="relative h-[55vh] min-h-[320px] max-h-[600px] overflow-hidden rounded-2xl">
 
-          {/* BEFORE layer — murky green pool (always visible, base layer) */}
+          {/* BEFORE layer — real green algae pool (always visible, base layer) */}
           <div className="absolute inset-0">
-            {/* CSS gradient simulating a dirty, neglected pool */}
-            <div
-              className="w-full h-full"
-              style={{
-                background:
-                  'linear-gradient(160deg, #2d4a1e 0%, #1a3a10 20%, #0f2d12 45%, #1c3a1a 70%, #0a2010 100%)',
-              }}
-            />
-            {/* Murky water texture overlay */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  'radial-gradient(ellipse at 30% 40%, rgba(40,80,20,0.6) 0%, transparent 60%), radial-gradient(ellipse at 70% 60%, rgba(20,50,10,0.8) 0%, transparent 50%)',
-              }}
-            />
-            {/* Algae/dirt particles */}
-            <div
-              className="absolute inset-0 opacity-40"
-              style={{
-                backgroundImage:
-                  'radial-gradient(circle, rgba(60,100,30,0.8) 1px, transparent 1px)',
-                backgroundSize: '32px 32px',
-              }}
+            <Image
+              src="/pool-before-green.webp"
+              alt="Green algae pool before HammerHead service"
+              fill
+              className="object-cover object-top"
+              sizes="100vw"
             />
             {/* Before label */}
             <div className="absolute top-5 left-5 flex items-center gap-2">
@@ -153,10 +135,10 @@ export function BeforeAfterSection() {
             }}
           >
             <Image
-              src="/pool-clean.jpg"
+              src="/pool-after-1.webp"
               alt="Crystal clear pool after HammerHead service"
               fill
-              className="object-cover"
+              className="object-cover object-top"
               sizes="100vw"
             />
             {/* After label */}

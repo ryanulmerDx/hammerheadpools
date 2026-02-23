@@ -108,10 +108,10 @@ export default function AboutPage() {
             style={{ minHeight: '380px' }}
           >
             <Image
-              src="/photo-repairs.png"
-              alt="Josh servicing pool equipment"
+              src="/family-photo.webp"
+              alt="Josh and family"
               fill
-              className="object-cover object-center"
+              className="object-cover object-top"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
             {/* Stats overlay at bottom */}
