@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { NAV_LINKS, SERVICE_AREAS, CONTACT } from '@/lib/constants';
 
 export function Footer() {
@@ -11,22 +12,26 @@ export function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-10 w-10 rounded-full bg-water-cyan flex items-center justify-center glow-cyan">
-                <span
-                  className="text-pool-deep font-bold text-sm select-none"
-                  style={{ fontFamily: 'var(--font-outfit)' }}
-                >
-                  HH
-                </span>
-              </div>
-              <span
-                className="font-heading text-lg font-bold text-white"
-                style={{ fontFamily: 'var(--font-outfit)' }}
-              >
-                HammerHead{' '}
-                <span className="text-water-cyan">Pools</span>
-              </span>
+            {/* Mascot */}
+            <div className="mb-4 h-20 w-20 rounded-full bg-white overflow-hidden shadow-lg shadow-water-cyan/15">
+              <Image
+                src="/logo-mascot.png"
+                alt="HammerHead Pools mascot"
+                width={80}
+                height={80}
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            {/* Wordmark — inverted to white for dark background */}
+            <div className="mb-4">
+              <Image
+                src="/logo-wordmark.jpg"
+                alt="HammerHead Pools"
+                width={180}
+                height={60}
+                className="h-8 w-auto object-contain"
+                style={{ filter: 'brightness(0) invert(1)' }}
+              />
             </div>
             <p className="text-sm text-sky-light/60 leading-relaxed max-w-xs">
               Locally-owned Arizona pool maintenance and repair. We keep your

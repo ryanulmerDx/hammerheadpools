@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS, CONTACT } from '@/lib/constants';
 
@@ -35,14 +36,16 @@ export function Navigation() {
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="h-9 w-9 rounded-full bg-water-cyan flex items-center justify-center transition-transform duration-300 group-hover:scale-110 glow-cyan">
-            <span
-              className="text-pool-deep font-heading font-bold text-sm select-none"
-              style={{ fontFamily: 'var(--font-outfit)' }}
-            >
-              HH
-            </span>
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="h-10 w-10 rounded-full bg-white overflow-hidden flex-shrink-0 transition-transform duration-300 group-hover:scale-110 shadow-md shadow-water-cyan/20">
+            <Image
+              src="/logo-mascot.png"
+              alt="HammerHead Pools mascot"
+              width={40}
+              height={40}
+              className="w-full h-full object-cover object-top"
+              priority
+            />
           </div>
           <span
             className="font-heading text-lg font-bold text-white"
