@@ -1,30 +1,42 @@
 import { HeroSection } from '@/components/sections/HeroSection';
 import { StatsSection } from '@/components/sections/StatsSection';
 import { ServicesSection } from '@/components/sections/ServicesSection';
+import { HowItWorksSection } from '@/components/sections/HowItWorksSection';
+import { TrustSection } from '@/components/sections/TrustSection';
 import { BeforeAfterSection } from '@/components/sections/BeforeAfterSection';
-import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
-import { CTASection } from '@/components/sections/CTASection';
+import { ServiceAreasSection } from '@/components/sections/ServiceAreasSection';
+import { UrgencyCTASection } from '@/components/sections/UrgencyCTASection';
+import { ContactFormSection } from '@/components/sections/ContactFormSection';
 
 export default function HomePage() {
   return (
     <main>
-      {/* 200vh scroll-driven 3D hero narrative */}
+      {/* 200vh scroll-driven 3D hero — new SEO headline + trust row + 2 CTAs */}
       <HeroSection />
 
-      {/* Quick trust stats (years, cities, etc.) */}
+      {/* Quick-scan trust stats */}
       <StatsSection />
 
-      {/* 3D tilt service cards with float-in animations */}
+      {/* 5 service cards — each with benefit bullets + Call for Service link */}
       <ServicesSection />
 
-      {/* Scroll-driven clip-path before/after reveal */}
+      {/* 3-step process to reduce friction */}
+      <HowItWorksSection />
+
+      {/* "Why Choose" bullets + testimonials */}
+      <TrustSection />
+
+      {/* Before / after visual proof */}
       <BeforeAfterSection />
 
-      {/* Drifting testimonial cards */}
-      <TestimonialsSection />
+      {/* Local SEO — city list with natural language paragraph */}
+      <ServiceAreasSection />
 
-      {/* Final conversion CTA */}
-      <CTASection />
+      {/* Urgency CTA — same-week availability hook */}
+      <UrgencyCTASection />
+
+      {/* Contact form — id="contact" anchors the hero CTA "Request a Free Quote" */}
+      <ContactFormSection />
     </main>
   );
 }

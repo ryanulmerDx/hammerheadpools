@@ -4,6 +4,7 @@ import './globals.css';
 import { Navigation } from '@/components/layout/Navigation';
 import { Footer } from '@/components/layout/Footer';
 import { SmoothScrollProvider } from '@/components/layout/SmoothScrollProvider';
+import { MobileCTABar } from '@/components/layout/MobileCTABar';
 
 const outfit = Outfit({
   variable: '--font-outfit',
@@ -20,22 +21,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'HammerHead Pools | Pool Service in Gilbert, Mesa, Chandler & Beyond',
+  title: 'Pool Maintenance & Repair in Phoenix | Hammerhead Pools',
   description:
-    "Locally-owned Arizona pool maintenance and repair. Weekly maintenance, repairs, filter cleaning, and more. Serving Gilbert, Mesa, Chandler, Queen Creek, San Tan Valley, Scottsdale, and Paradise Valley.",
+    'Locally owned pool maintenance, green pool cleanups, and equipment repairs in Phoenix, Scottsdale, Mesa, Chandler, Gilbert & Tempe. Same-week service available.',
   keywords: [
-    'pool cleaning',
-    'pool maintenance',
-    'Gilbert pool service',
-    'Mesa pool cleaning',
-    'Chandler pool repair',
-    'Arizona pool company',
-    'HammerHead Pools',
+    'pool maintenance Phoenix',
+    'pool service Scottsdale',
+    'pool cleaning Mesa',
+    'pool repair Chandler',
+    'green pool cleanup Phoenix',
+    'weekly pool service Arizona',
+    'Hammerhead Pools',
   ],
   openGraph: {
-    title: 'HammerHead Pools | Arizona Pool Cleaning & Maintenance',
+    title: 'Pool Maintenance & Repair in Phoenix | Hammerhead Pools',
     description:
-      "We keep your pool perfect so you don't have to. Serving the greater Phoenix valley area.",
+      'Locally owned pool maintenance, cleanups, and repairs across the Phoenix Valley. Same-week service available.',
     type: 'website',
     locale: 'en_US',
   },
@@ -53,6 +54,7 @@ export default function RootLayout({
           <Navigation />
           {children}
           <Footer />
+          <MobileCTABar />
         </SmoothScrollProvider>
       </body>
     </html>

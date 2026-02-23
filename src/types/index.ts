@@ -3,9 +3,19 @@ export interface Service {
   title: string;
   tagline: string;
   description: string;
-  icon: 'droplet' | 'wrench' | 'sparkles' | 'filter';
+  icon: 'droplet' | 'wrench' | 'sparkles' | 'filter' | 'star';
   highlight: boolean;
   features?: string[];
+}
+
+export interface TrustItem {
+  label: string;
+}
+
+export interface HowItWorksStep {
+  step: number;
+  title: string;
+  description: string;
 }
 
 export interface Testimonial {

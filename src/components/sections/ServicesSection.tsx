@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import { gsap } from '@/lib/gsap';
-import { SERVICES } from '@/lib/constants';
+import { siteConfig } from '@/lib/siteConfig';
 import { ServiceCard3D } from '@/components/three/ServiceCard3D';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { RippleButton } from '@/components/ui/RippleButton';
@@ -18,7 +18,6 @@ export function ServicesSection() {
       ).matches;
       if (prefersReducedMotion) return;
 
-      // Staggered float-in with slight 3D perspective tilt from below
       cardsRef.current.forEach((card, i) => {
         if (!card) return;
         gsap.from(card, {
@@ -27,7 +26,7 @@ export function ServicesSection() {
           rotateX: 12,
           duration: 1.1,
           ease: 'power3.out',
-          delay: i * 0.13,
+          delay: i * 0.11,
           scrollTrigger: {
             trigger: card,
             start: 'top 88%',
@@ -63,12 +62,12 @@ export function ServicesSection() {
           </p>
         </div>
 
-        {/* Cards grid */}
+        {/* Cards grid — 5 services: 3-col on lg (wraps to 3+2) */}
         <div
-          className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           style={{ perspective: '1200px' }}
         >
-          {SERVICES.map((service, i) => (
+          {siteConfig.services.map((service, i) => (
             <div
               key={service.id}
               ref={(el) => {
@@ -82,17 +81,26 @@ export function ServicesSection() {
 
         {/* Bottom CTA row */}
         <div className="mt-12 flex flex-col sm:flex-row items-center gap-5">
-          <RippleButton href="/services" variant="outline">
-            See Full Service List
+          <RippleButton href={siteConfig.contact.phoneHref} variant="primary">
+            <PhoneIcon />
+            Call for Service
           </RippleButton>
           <p
             className="text-sm"
             style={{ color: 'rgba(224,242,254,0.5)', fontFamily: 'var(--font-inter)' }}
           >
-            Serving Gilbert, Mesa, Chandler &amp; more
+            Serving Phoenix, Scottsdale, Mesa &amp; more
           </p>
         </div>
       </div>
     </section>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
   );
 }

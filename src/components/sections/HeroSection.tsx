@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { RippleButton } from '@/components/ui/RippleButton';
-import { CONTACT, SERVICE_AREAS } from '@/lib/constants';
+import { siteConfig } from '@/lib/siteConfig';
 
 // Dynamic import — Three.js must NOT run on the server
 const WaterScene = dynamic(
@@ -24,6 +24,7 @@ export function HeroSection() {
   const eyebrowRef = useRef<HTMLParagraphElement>(null);
   const subRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const trustRef = useRef<HTMLDivElement>(null);
   const indicatorRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const { isMobile, prefersReducedMotion } = useMediaQuery();
@@ -34,7 +35,6 @@ export function HeroSection() {
 
     const ctx = gsap.context(() => {
       // ── Scrub scroll progress into the 3D camera ──────────────────────────
-      // End = 100vh past section start (= exactly when sticky section un-sticks)
       ScrollTrigger.create({
         trigger: section,
         start: 'top top',
@@ -43,7 +43,7 @@ export function HeroSection() {
         onUpdate: (self) => setScrollProgress(self.progress),
       });
 
-      // ── Fade scroll indicator out as user starts scrolling ─────────────────
+      // ── Fade scroll indicator out as user starts scrolling ────────────────
       if (indicatorRef.current) {
         gsap.to(indicatorRef.current, {
           opacity: 0,
@@ -60,29 +60,22 @@ export function HeroSection() {
 
       if (prefersReducedMotion) return;
 
-      // ── Text entrance animations (play once, not scrubbed) ─────────────────
-      const staggerElements = [
-        eyebrowRef.current,
-        headlineRef.current,
-        subRef.current,
-        ctaRef.current,
-      ];
-
-      gsap.from(staggerElements, {
-        y: 36,
-        opacity: 0,
-        duration: 1.2,
-        ease: 'power3.out',
-        stagger: 0.18,
-        delay: 0.3,
-      });
+      // ── Text entrance animations ───────────────────────────────────────────
+      gsap.from(
+        [eyebrowRef.current, headlineRef.current, subRef.current, ctaRef.current, trustRef.current],
+        {
+          y: 36,
+          opacity: 0,
+          duration: 1.2,
+          ease: 'power3.out',
+          stagger: 0.16,
+          delay: 0.3,
+        }
+      );
     }, section);
 
     return () => ctx.revert();
   }, [prefersReducedMotion]);
-
-  // Short version of areas for the eyebrow
-  const areaDisplay = SERVICE_AREAS.slice(0, 4).join(' · ');
 
   return (
     // 200vh outer — the scroll distance. Sticky inner pins content for first 100vh.
@@ -103,7 +96,7 @@ export function HeroSection() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to bottom, rgba(10,35,66,0.25) 0%, rgba(10,35,66,0.1) 40%, rgba(10,35,66,0.7) 100%)',
+              'linear-gradient(to bottom, rgba(4,14,30,0.30) 0%, rgba(4,14,30,0.10) 40%, rgba(4,14,30,0.75) 100%)',
           }}
         />
 
@@ -116,58 +109,72 @@ export function HeroSection() {
             className="mb-5 text-xs font-semibold tracking-[0.35em] uppercase text-water-cyan"
             style={{ fontFamily: 'var(--font-outfit)' }}
           >
-            {areaDisplay}
+            HammerHead Pools · Phoenix Valley
           </p>
 
-          {/* Headline */}
+          {/* Headline — SEO-first, benefit-driven */}
           <div ref={headlineRef}>
             <h1
-              className="font-heading text-6xl font-extrabold leading-[0.95] tracking-tight text-white sm:text-7xl md:text-[7rem] lg:text-[8rem]"
+              className="font-heading font-extrabold leading-tight tracking-tight text-white max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
               style={{ fontFamily: 'var(--font-outfit)' }}
             >
-              <span className="block">HammerHead</span>
+              Phoenix Pool Maintenance &amp; Repairs
               <span
-                className="block text-gradient-water"
+                className="block text-gradient-water mt-1"
                 style={{ paddingBottom: '0.05em' }}
               >
-                Pools
+                Fast, Reliable, Local
               </span>
             </h1>
           </div>
 
-          {/* Tagline */}
+          {/* Subheadline */}
           <p
             ref={subRef}
-            className="mt-7 max-w-sm text-lg font-light leading-relaxed sm:max-w-md sm:text-xl"
-            style={{ color: 'rgba(224,242,254,0.82)', fontFamily: 'var(--font-inter)' }}
+            className="mt-6 max-w-lg text-lg font-light leading-relaxed"
+            style={{ color: 'rgba(224,242,254,0.80)', fontFamily: 'var(--font-inter)' }}
           >
-            We Keep Your Pool Perfect,{' '}
-            <br className="hidden sm:block" />
-            So You Don&apos;t Have To
+            Weekly service, green pool cleanups, and equipment repairs across
+            Phoenix, Scottsdale &amp; Mesa.
           </p>
 
-          {/* CTA buttons */}
+          {/* CTAs */}
           <div
             ref={ctaRef}
-            className="mt-10 flex flex-col sm:flex-row gap-4 items-center"
+            className="mt-9 flex flex-col sm:flex-row gap-4 items-center"
           >
-            <RippleButton href={CONTACT.phoneHref} variant="primary">
+            {/* Primary: phone call */}
+            <RippleButton href={siteConfig.contact.phoneHref} variant="primary" className="text-sm px-7 py-3.5">
               <PhoneIcon />
-              {CONTACT.phone}
+              Call Now — Same Week Service
             </RippleButton>
-            <RippleButton href="/services" variant="outline">
-              Explore Services
+            {/* Secondary: scroll to contact form on the page */}
+            <RippleButton href="#contact" variant="outline" className="text-sm px-7 py-3.5">
+              Request a Free Quote
             </RippleButton>
           </div>
 
-          {/* Promo badge */}
-          <div className="mt-8 inline-flex items-center gap-2.5 rounded-full border border-water-cyan/30 bg-water-cyan/10 px-4 py-2 backdrop-blur-sm">
-            <span className="text-xs text-water-cyan font-semibold" style={{ fontFamily: 'var(--font-outfit)' }}>
-              Special Offer
-            </span>
-            <span className="text-xs" style={{ color: 'rgba(224,242,254,0.7)' }}>
-              Cartridge Filter Cleans — Only $50
-            </span>
+          {/* Trust row
+              Items pulled from siteConfig.trustItems — edit labels there.
+              "Licensed & Insured*" uses an asterisk; remove it once confirmed. */}
+          <div
+            ref={trustRef}
+            className="mt-8 flex flex-wrap justify-center gap-2.5"
+          >
+            {siteConfig.trustItems.map((item) => (
+              <div
+                key={item.label}
+                className="flex items-center gap-1.5 rounded-full border border-water-cyan/20 bg-black/20 px-3.5 py-1.5 backdrop-blur-sm"
+              >
+                <CheckIcon />
+                <span
+                  className="text-[11px] font-medium"
+                  style={{ color: 'rgba(224,242,254,0.78)', fontFamily: 'var(--font-outfit)' }}
+                >
+                  {item.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -219,6 +226,23 @@ function PhoneIcon() {
       strokeLinejoin="round"
     >
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg
+      width="11"
+      height="11"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#22d3ee"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="20 6 9 17 4 12" />
     </svg>
   );
 }
