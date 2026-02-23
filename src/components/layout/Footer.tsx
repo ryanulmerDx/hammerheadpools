@@ -125,10 +125,10 @@ export function Footer() {
               <li>
                 <a
                   href={CONTACT.emailHref}
-                  className="text-sm text-sky-light/60 hover:text-water-cyan transition-colors flex items-center gap-2"
+                  className="text-xs text-sky-light/60 hover:text-water-cyan transition-colors flex items-center gap-2 whitespace-nowrap"
                 >
                   <span className="text-water-cyan shrink-0">✉️</span>
-                  <span className="truncate">{CONTACT.email}</span>
+                  {CONTACT.email}
                 </a>
               </li>
               <li className="text-sm text-sky-light/60">
