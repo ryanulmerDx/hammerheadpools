@@ -57,21 +57,10 @@ export function HowItWorksSection() {
         </div>
 
         <div className="grid gap-10 sm:grid-cols-3 relative">
-          {siteConfig.howItWorks.map((step, i) => (
+          {siteConfig.howItWorks.map((step) => (
             <div key={step.step} className="hiw-step relative text-center sm:text-left">
-              {/* Connector line between steps */}
-              {i < siteConfig.howItWorks.length - 1 && (
-                <div
-                  className="hidden sm:block absolute top-8 left-[calc(100%-0.5rem)] w-[calc(100%-3.5rem)] h-px"
-                  style={{
-                    background:
-                      'linear-gradient(to right, rgba(34,211,238,0.35), rgba(34,211,238,0.08))',
-                  }}
-                />
-              )}
-
-              {/* Step number circle — solid bg so it covers the connector line behind it */}
-              <div className="relative z-10 mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full border border-water-cyan/30 text-2xl font-extrabold text-water-cyan" style={{ fontFamily: 'var(--font-outfit)', background: '#060f1e' }}>
+              {/* Step number circle */}
+              <div className="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full border border-water-cyan/30 text-2xl font-extrabold text-water-cyan" style={{ fontFamily: 'var(--font-outfit)', background: '#060f1e' }}>
                 {step.step}
               </div>
 
