@@ -125,10 +125,10 @@ export function Footer() {
               <li>
                 <a
                   href={CONTACT.emailHref}
-                  className="text-sm text-sky-light/60 hover:text-water-cyan transition-colors flex items-center gap-2 break-all"
+                  className="text-sm text-sky-light/60 hover:text-water-cyan transition-colors flex items-center gap-2"
                 >
                   <span className="text-water-cyan shrink-0">✉️</span>
-                  {CONTACT.email}
+                  <span style={{ overflowWrap: 'anywhere' }}>{CONTACT.email}</span>
                 </a>
               </li>
               <li className="text-sm text-sky-light/60">
