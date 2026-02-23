@@ -4,7 +4,7 @@ import { NAV_LINKS, SERVICE_AREAS, CONTACT } from '@/lib/constants';
 
 export function Footer() {
   return (
-    <footer className="relative bg-pool-deep border-t border-water-cyan/10">
+    <footer className="relative bg-pool-deep border-t border-water-cyan/10 pb-16 md:pb-0">
       {/* Top separator glow */}
       <div className="separator" />
 

@@ -15,6 +15,7 @@ export function MobileCTABar() {
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           borderColor: 'rgba(34, 211, 238, 0.18)',
+          paddingBottom: 'env(safe-area-inset-bottom)',
         }}
       >
         <Link
