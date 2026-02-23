@@ -128,7 +128,7 @@ export function Footer() {
                   className="text-sm text-sky-light/60 hover:text-water-cyan transition-colors flex items-center gap-2"
                 >
                   <span className="text-water-cyan shrink-0">✉️</span>
-                  <span style={{ overflowWrap: 'anywhere' }}>{CONTACT.email}</span>
+                  <span className="truncate">{CONTACT.email}</span>
                 </a>
               </li>
               <li className="text-sm text-sky-light/60">
