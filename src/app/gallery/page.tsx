@@ -11,22 +11,22 @@ import { CONTACT } from '@/lib/constants';
 const TRANSFORMATIONS = [
   {
     id: 1,
-    before: { src: '/pool-before-green.webp', label: 'Green algae · debris-filled' },
-    after:  { src: '/pool-after-1.webp',      label: 'Crystal clear · swim-ready' },
+    before: { src: '/pool-before-green.webp', label: 'Green algae · debris-filled',      pos: 'object-top'    },
+    after:  { src: '/pool-after-1.webp',      label: 'Crystal clear · swim-ready',       pos: 'object-top'    },
     title:   'Green Pool Rescue',
     outcome: 'Algae cleared and chemistry fully balanced — swim-ready within days.',
   },
   {
     id: 2,
-    before: { src: '/pool-before-algae.webp', label: 'Heavy algae & floor staining' },
-    after:  { src: '/pool-after-luxury.webp', label: 'Sparkling · waterfall flowing' },
+    before: { src: '/pool-before-algae.webp', label: 'Heavy algae & floor staining',     pos: 'object-center' },
+    after:  { src: '/pool-after-luxury.webp', label: 'Sparkling · waterfall flowing',    pos: 'object-center' },
     title:   'Luxury Pool Restoration',
     outcome: 'Black algae and deep floor stains fully cleared. Waterfall and spa restored.',
   },
   {
     id: 3,
-    before: { src: '/filters-dirty.webp', label: 'Clogged · end-of-life cartridges' },
-    after:  { src: '/filters-clean.webp', label: 'Deep-cleaned · like new' },
+    before: { src: '/filters-dirty.webp',     label: 'Clogged · end-of-life cartridges', pos: 'object-center' },
+    after:  { src: '/filters-clean.webp',     label: 'Deep-cleaned · like new',          pos: 'object-center' },
     title:   'Filter Deep Clean',
     outcome: 'Four cartridges restored to factory performance — no replacement needed.',
   },
@@ -109,7 +109,7 @@ export default function GalleryPage() {
                       src={pair.before.src}
                       alt={`Before: ${pair.title}`}
                       fill
-                      className="object-cover object-top"
+                      className={`object-cover ${pair.before.pos}`}
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 600px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
@@ -136,7 +136,7 @@ export default function GalleryPage() {
                       src={pair.after.src}
                       alt={`After: ${pair.title}`}
                       fill
-                      className="object-cover object-top"
+                      className={`object-cover ${pair.after.pos}`}
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 600px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
