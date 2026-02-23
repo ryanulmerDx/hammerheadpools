@@ -70,8 +70,8 @@ export function HowItWorksSection() {
                 />
               )}
 
-              {/* Step number circle */}
-              <div className="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full border border-water-cyan/30 bg-water-cyan/8 text-2xl font-extrabold text-water-cyan" style={{ fontFamily: 'var(--font-outfit)' }}>
+              {/* Step number circle — solid bg so it covers the connector line behind it */}
+              <div className="relative z-10 mb-5 inline-flex h-16 w-16 items-center justify-center rounded-full border border-water-cyan/30 text-2xl font-extrabold text-water-cyan" style={{ fontFamily: 'var(--font-outfit)', background: '#060f1e' }}>
                 {step.step}
               </div>
 
