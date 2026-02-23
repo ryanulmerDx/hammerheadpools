@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -39,7 +39,7 @@ export function Navigation() {
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="h-10 w-10 rounded-full bg-white overflow-hidden flex-shrink-0 transition-transform duration-300 group-hover:scale-110 shadow-md shadow-water-cyan/20">
             <Image
-              src="/logo-mascot.png"
+              src="/logo-mascot.webp"
               alt="HammerHead Pools mascot"
               width={40}
               height={40}

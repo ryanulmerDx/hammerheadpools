@@ -12,24 +12,23 @@ export function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            {/* Mascot */}
-            <div className="mb-4 h-20 w-20 rounded-full bg-white overflow-hidden shadow-lg shadow-water-cyan/15">
+            {/* Full logo — mascot in white circle + wordmark */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-14 w-14 rounded-full bg-white overflow-hidden flex-shrink-0 shadow-md shadow-water-cyan/15">
+                <Image
+                  src="/logo-mascot.webp"
+                  alt="HammerHead Pools mascot"
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
               <Image
-                src="/logo-mascot.png"
-                alt="HammerHead Pools mascot"
-                width={80}
-                height={80}
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-            {/* Wordmark — inverted to white for dark background */}
-            <div className="mb-4">
-              <Image
-                src="/logo-wordmark.jpg"
+                src="/logo-wordmark.webp"
                 alt="HammerHead Pools"
-                width={180}
-                height={60}
-                className="h-8 w-auto object-contain"
+                width={160}
+                height={52}
+                className="h-10 w-auto object-contain"
                 style={{ filter: 'brightness(0) invert(1)' }}
               />
             </div>
