@@ -14,16 +14,13 @@ export function Footer() {
           <div className="lg:col-span-1">
             {/* Full logo — mascot in white circle + wordmark */}
             <div className="flex items-center gap-3 mb-4">
-              <div
-                className="h-14 w-14 flex-shrink-0"
-                style={{ mixBlendMode: 'multiply' }}
-              >
+              <div className="h-14 w-14 rounded-full bg-white overflow-hidden flex-shrink-0 shadow-md shadow-water-cyan/15">
                 <Image
                   src="/logo-mascot.webp"
                   alt="HammerHead Pools mascot"
                   width={56}
                   height={56}
-                  className="w-full h-full object-cover object-top rounded-full"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div>

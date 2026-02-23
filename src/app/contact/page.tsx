@@ -313,7 +313,7 @@ function ContactCard({ icon, title, value, href }: {
         {href ? (
           <a
             href={href}
-            className="text-sm text-white hover:text-water-cyan transition-colors mt-0.5 block break-all"
+            className="text-sm text-white hover:text-water-cyan transition-colors mt-0.5 block truncate"
             style={{ fontFamily: 'var(--font-inter)' }}
           >
             {value}
