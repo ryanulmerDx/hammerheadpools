@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
+/* ─── Brand Design Tokens ─── */
+@theme {
+  /* Colors */
+  --color-pool-deep:     #0a2342;
+  --color-pool-mid:      #0d3b6e;
+  --color-pool-bright:   #1a5f9e;
+  --color-water-cyan:    #22d3ee;
+  --color-water-bright:  #00c6fb;
+  --color-sky-light:     #e0f2fe;
+  --color-sand:          #f5e6c8;
+  --color-arizona-sun:   #ff9500;
+
+  /* Typography */
+  --font-heading: var(--font-outfit);
+  --font-body:    var(--font-inter);
+
+  /* Spacing */
+  --spacing-section: 7rem;
+}
+
+/* ─── Base Reset ─── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a2342;
+  --foreground: #e0f2fe;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  /* Lenis takes over smooth scrolling — disable native */
+  scroll-behavior: auto;
+  background-color: #0a2342;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-pool-deep);
+  color: var(--color-sky-light);
+  font-family: var(--font-body, Inter, sans-serif);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading, Outfit, sans-serif);
+}
+
+/* ─── Lenis smooth scroll classes ─── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* ─── Utility classes ─── */
+
+/* Water gradient text */
+.text-gradient-water {
+  background: linear-gradient(135deg, #22d3ee 0%, #00c6fb 60%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(13, 59, 110, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(34, 211, 238, 0.18);
+}
+
+/* Section glow ambient */
+.section-glow {
+  box-shadow: 0 0 160px rgba(34, 211, 238, 0.07);
+}
+
+/* Cyan glow on elements */
+.glow-cyan {
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.4), 0 0 60px rgba(34, 211, 238, 0.15);
+}
+
+/* Horizontal separator with gradient */
+.separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.4), transparent);
+}
+
+/* Mobile hero animated gradient fallback */
+@keyframes waterFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-mobile-bg {
+  background: linear-gradient(
+    135deg,
+    #0a2342 0%,
+    #0d3b6e 25%,
+    #1a5f9e 50%,
+    #22d3ee 75%,
+    #0d3b6e 100%
+  );
+  background-size: 400% 400%;
+  animation: waterFlow 8s ease infinite;
+}
+
+/* Shimmer animation for loading states */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Scroll indicator bounce */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0) translateX(-50%); opacity: 0.6; }
+  50%       { transform: translateY(8px) translateX(-50%); opacity: 1; }
+}
+
+.scroll-indicator {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* Star rating */
+.star-filled {
+  color: #22d3ee;
+}
+
+/* Section padding utility */
+.py-section {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
 }
