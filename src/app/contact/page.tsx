@@ -302,8 +302,8 @@ function ContactCard({ icon, title, value, href }: {
 }) {
   return (
     <div className="glass-card rounded-xl p-6 flex items-center gap-4">
-      <span className="text-2xl">{icon}</span>
-      <div>
+      <span className="text-2xl shrink-0">{icon}</span>
+      <div className="min-w-0">
         <p
           className="text-xs font-semibold tracking-widest uppercase text-water-cyan"
           style={{ fontFamily: 'var(--font-outfit)' }}
@@ -313,13 +313,13 @@ function ContactCard({ icon, title, value, href }: {
         {href ? (
           <a
             href={href}
-            className="text-sm text-white hover:text-water-cyan transition-colors mt-0.5 block"
+            className="text-sm text-white hover:text-water-cyan transition-colors mt-0.5 block break-all"
             style={{ fontFamily: 'var(--font-inter)' }}
           >
             {value}
           </a>
         ) : (
-          <p className="text-sm text-sky-light/80 mt-0.5" style={{ fontFamily: 'var(--font-inter)' }}>
+          <p className="text-sm text-sky-light/80 mt-0.5 break-words" style={{ fontFamily: 'var(--font-inter)' }}>
             {value}
           </p>
         )}

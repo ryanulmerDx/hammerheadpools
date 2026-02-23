@@ -37,14 +37,16 @@ export function Navigation() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="h-10 w-10 rounded-full overflow-hidden flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+          <div
+            className="h-10 w-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+            style={{ mixBlendMode: 'multiply' }}
+          >
             <Image
               src="/logo-mascot.webp"
               alt="HammerHead Pools mascot"
               width={40}
               height={40}
-              className="w-full h-full object-cover object-top"
-              style={{ mixBlendMode: 'multiply' }}
+              className="w-full h-full object-cover object-top rounded-full"
               priority
             />
           </div>
