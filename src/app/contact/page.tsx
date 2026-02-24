@@ -13,6 +13,8 @@ export default function ContactPage() {
     name: '', email: '', phone: '', area: '', message: '', service: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -31,11 +33,30 @@ export default function ContactPage() {
     setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In production: send to API route or email service (Resend, SendGrid, etc.)
-    // For now: simulate success
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formState.name,
+          phone: formState.phone,
+          email: formState.email,
+          service: formState.service,
+          city: formState.area,
+          message: formState.message,
+        }),
+      });
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setError('Something went wrong. Please call us directly or try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -250,9 +271,15 @@ export default function ContactPage() {
                   />
                 </FormField>
 
-                <RippleButton variant="primary" className="mt-2 w-full justify-center">
-                  Send Message
+                <RippleButton variant="primary" className="mt-2 w-full justify-center" disabled={loading}>
+                  {loading ? 'Sending…' : 'Send Message'}
                 </RippleButton>
+
+                {error && (
+                  <p className="text-center text-sm text-red-400" style={{ fontFamily: 'var(--font-inter)' }}>
+                    {error}
+                  </p>
+                )}
 
                 <p
                   className="text-xs text-center"

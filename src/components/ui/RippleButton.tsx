@@ -11,6 +11,7 @@ interface RippleButtonProps {
   variant?: 'primary' | 'outline' | 'ghost';
   className?: string;
   external?: boolean;
+  disabled?: boolean;
 }
 
 export function RippleButton({
@@ -20,6 +21,7 @@ export function RippleButton({
   variant = 'primary',
   className = '',
   external = false,
+  disabled = false,
 }: RippleButtonProps) {
   const elementRef = useRef<HTMLElement | null>(null);
 
@@ -118,9 +120,10 @@ export function RippleButton({
   return (
     <button
       ref={setButtonRef}
-      className={finalClassName}
+      className={`${finalClassName} disabled:opacity-60 disabled:cursor-not-allowed`}
       style={{ fontFamily: 'var(--font-outfit)' }}
-      onClick={triggerRipple}
+      onClick={disabled ? undefined : triggerRipple}
+      disabled={disabled}
     >
       <span className="relative z-10 flex items-center gap-2">{children}</span>
     </button>
