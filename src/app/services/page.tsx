@@ -96,40 +96,53 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Subtle offers strip */}
-      <section className="pb-12">
+      {/* Offers strip */}
+      <section className="pb-16">
         <div className="mx-auto max-w-6xl px-6">
           <div
-            className="rounded-2xl border border-water-cyan/10 px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4"
-            style={{ background: 'rgba(34,211,238,0.04)' }}
+            className="rounded-2xl border border-water-cyan/20 px-7 py-6"
+            style={{ background: 'rgba(34,211,238,0.06)' }}
           >
-            <p
-              className="text-xs font-semibold tracking-widest uppercase text-water-cyan shrink-0"
-              style={{ fontFamily: 'var(--font-outfit)' }}
-            >
-              Current Offers
-            </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
+              <p
+                className="text-xs font-semibold tracking-widest uppercase text-water-cyan"
+                style={{ fontFamily: 'var(--font-outfit)' }}
+              >
+                Current Offers
+              </p>
+              <p
+                className="text-[11px] text-sky-light/40"
+                style={{ fontFamily: 'var(--font-inter)' }}
+              >
+                Valid through December 31, 2026
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
               {[
-                '50% off your 2nd month of weekly cleaning',
-                'Refer a friend — you both save $50',
-                '3 referrals = 1 free month',
+                { label: '50% Off Your 2nd Month', detail: 'Sign up for weekly cleaning' },
+                { label: 'Refer a Friend — Both Save $50', detail: 'When your referral signs up' },
+                { label: '3 Referrals = 1 Free Month', detail: 'Our top referral reward' },
               ].map((deal) => (
-                <span
-                  key={deal}
-                  className="rounded-full border border-water-cyan/20 px-3 py-1 text-xs text-sky-light/70"
-                  style={{ fontFamily: 'var(--font-inter)' }}
+                <div
+                  key={deal.label}
+                  className="rounded-xl border border-water-cyan/15 px-4 py-3"
+                  style={{ background: 'rgba(34,211,238,0.05)' }}
                 >
-                  {deal}
-                </span>
+                  <p
+                    className="text-sm font-semibold text-white"
+                    style={{ fontFamily: 'var(--font-outfit)' }}
+                  >
+                    {deal.label}
+                  </p>
+                  <p
+                    className="text-xs mt-0.5"
+                    style={{ color: 'rgba(224,242,254,0.5)', fontFamily: 'var(--font-inter)' }}
+                  >
+                    {deal.detail}
+                  </p>
+                </div>
               ))}
             </div>
-            <p
-              className="text-[11px] text-sky-light/35 sm:ml-auto shrink-0"
-              style={{ fontFamily: 'var(--font-inter)' }}
-            >
-              Ends 12/31/26
-            </p>
           </div>
         </div>
       </section>
