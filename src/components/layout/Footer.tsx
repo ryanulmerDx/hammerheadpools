@@ -145,7 +145,17 @@ export function Footer() {
           <span>
             © {new Date().getFullYear()} HammerHead Pools. All rights reserved.
           </span>
-          <span>Gilbert, AZ · Locally Owned &amp; Operated</span>
+          <span>
+            Gilbert, AZ · Locally Owned &amp; Operated
+          </span>
+          <a
+            href="https://reachflowstudio.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-water-cyan transition-colors"
+          >
+            Made by ReachFlow Studio
+          </a>
         </div>
       </div>
     </footer>
