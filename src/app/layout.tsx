@@ -40,6 +40,12 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pool Maintenance & Repair in Phoenix | Hammerhead Pools',
+    description:
+      'Locally owned pool maintenance, cleanups, and repairs across the Phoenix Valley. Same-week service available.',
+  },
 };
 
 export default function RootLayout({
