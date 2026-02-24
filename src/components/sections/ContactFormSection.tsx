@@ -20,12 +20,38 @@ const SERVICE_OPTIONS = [
 
 export function ContactFormSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Replace this with your real submission logic (API route, Formspree, etc.)
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+
+    const form = formRef.current!;
+    const data = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      service: (form.elements.namedItem('service') as HTMLSelectElement).value,
+      city: (form.elements.namedItem('city') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setError('Something went wrong. Please call us directly or try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -124,11 +150,18 @@ export function ContactFormSection() {
 
             <button
               type="submit"
-              className="mt-2 w-full rounded-full bg-water-cyan text-pool-deep text-sm font-bold py-4 tracking-wide hover:bg-water-bright transition-colors duration-200 cursor-pointer"
+              disabled={loading}
+              className="mt-2 w-full rounded-full bg-water-cyan text-pool-deep text-sm font-bold py-4 tracking-wide hover:bg-water-bright transition-colors duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
               style={{ fontFamily: 'var(--font-outfit)' }}
             >
-              Send Request
+              {loading ? 'Sending…' : 'Send Request'}
             </button>
+
+            {error && (
+              <p className="text-center text-sm text-red-400" style={{ fontFamily: 'var(--font-inter)' }}>
+                {error}
+              </p>
+            )}
 
             <p
               className="text-center text-xs"
