@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { error } = await resend.emails.send({
-    from: 'HammerHead Pools Website <onboarding@resend.dev>',
+    from: 'HammerHead Pools Website <noreply@hammerheadpoolsaz.com>',
     to: 'hammerheadpoolsaz@gmail.com',
     replyTo: email || undefined,
     subject: `New Quote Request — ${service} (${city})`,
