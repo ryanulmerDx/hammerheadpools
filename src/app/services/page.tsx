@@ -96,6 +96,44 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Subtle offers strip */}
+      <section className="pb-12">
+        <div className="mx-auto max-w-6xl px-6">
+          <div
+            className="rounded-2xl border border-water-cyan/10 px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4"
+            style={{ background: 'rgba(34,211,238,0.04)' }}
+          >
+            <p
+              className="text-xs font-semibold tracking-widest uppercase text-water-cyan shrink-0"
+              style={{ fontFamily: 'var(--font-outfit)' }}
+            >
+              Current Offers
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {[
+                '50% off your 2nd month of weekly cleaning',
+                'Refer a friend — you both save $50',
+                '3 referrals = 1 free month',
+              ].map((deal) => (
+                <span
+                  key={deal}
+                  className="rounded-full border border-water-cyan/20 px-3 py-1 text-xs text-sky-light/70"
+                  style={{ fontFamily: 'var(--font-inter)' }}
+                >
+                  {deal}
+                </span>
+              ))}
+            </div>
+            <p
+              className="text-[11px] text-sky-light/35 sm:ml-auto shrink-0"
+              style={{ fontFamily: 'var(--font-inter)' }}
+            >
+              Ends 12/31/26
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ section */}
       <section className="py-section bg-pool-mid">
         <div className="separator absolute left-0 right-0" />
@@ -151,7 +189,7 @@ const FAQ = [
   },
   {
     q: 'What areas do you serve?',
-    a: 'We currently serve Gilbert, Mesa, Chandler, Queen Creek, San Tan Valley, Scottsdale, and Paradise Valley. Not sure if we cover your neighborhood? Just give us a call.',
+    a: 'We currently serve Gilbert, Mesa, Chandler, and Queen Creek. Not sure if we cover your neighborhood? Just give us a call.',
   },
   {
     q: 'What is included in weekly maintenance?',
