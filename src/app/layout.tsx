@@ -23,7 +23,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Pool Maintenance & Repair | Hammerhead Pools — Gilbert, Mesa, Chandler',
   description:
-    'Locally owned pool maintenance, green pool cleanups, and equipment repairs serving Gilbert, Mesa, Chandler, Queen Creek, Scottsdale & Tempe. Same-week service available.',
+    'Locally owned pool maintenance, green pool cleanups, and equipment repairs serving Gilbert, Mesa, Chandler & Queen Creek. Same-week service available.',
   keywords: [
     'pool maintenance Gilbert AZ',
     'pool service Mesa AZ',

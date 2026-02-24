@@ -40,7 +40,7 @@ export const siteConfig = {
   ] as TrustItem[],
 
   // ── Service areas (Local SEO) ──────────────────────────────────────────────
-  serviceAreas: ['Gilbert', 'Mesa', 'Chandler', 'Queen Creek', 'Scottsdale', 'Tempe'],
+  serviceAreas: ['Gilbert', 'Mesa', 'Chandler', 'Queen Creek'],
 
   // ── Services ──────────────────────────────────────────────────────────────
   services: [
@@ -170,7 +170,7 @@ export const siteConfig = {
     'Locally owned and operated in the East Valley',
     'Responsive communication — real answers, fast',
     'Transparent pricing with no surprise charges',
-    'Serving Gilbert, Mesa, Chandler, Queen Creek & more',
+    'Serving Gilbert, Mesa, Chandler & Queen Creek',
     '$50 cartridge filter clean special',
   ],
 
