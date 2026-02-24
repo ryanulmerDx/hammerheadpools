@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'HammerHead Pools — Pool Maintenance & Repair in Phoenix';
+export const alt = 'HammerHead Pools — Pool Maintenance & Repair in Gilbert, Mesa & Chandler';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -68,7 +68,7 @@ export default function OGImage() {
             textAlign: 'center',
           }}
         >
-          Pool Maintenance &amp; Repair · Phoenix Valley
+          Pool Maintenance &amp; Repair · Gilbert, Mesa, Chandler &amp; Queen Creek
         </div>
       </div>
     ),

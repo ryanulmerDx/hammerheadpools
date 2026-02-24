@@ -52,7 +52,7 @@ export function ServiceAreasSection() {
         >
           Proudly Serving
           <br />
-          <span className="text-gradient-water">the Phoenix Valley</span>
+          <span className="text-gradient-water">the East Valley</span>
         </h2>
 
         {/* Local SEO paragraph — naturally includes city names */}
@@ -61,9 +61,9 @@ export function ServiceAreasSection() {
           style={{ color: 'rgba(224,242,254,0.65)', fontFamily: 'var(--font-inter)' }}
         >
           Hammerhead Pools provides professional pool service in {areaList}.
-          Whether you need weekly pool maintenance in Phoenix, a green pool cleanup in
-          Scottsdale, or pool equipment repairs in Mesa — our team is nearby and ready
-          to help the same week.
+          Whether you need weekly pool maintenance in Gilbert, a green pool cleanup in
+          Chandler, or pool equipment repairs in Mesa or Queen Creek — our team is
+          nearby and ready to help the same week.
         </p>
 
         {/* City chips */}

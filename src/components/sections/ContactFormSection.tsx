@@ -107,7 +107,7 @@ export function ContactFormSection() {
                 type="text"
                 name="city"
                 required
-                placeholder="Phoenix, Scottsdale, Mesa…"
+                placeholder="Gilbert, Mesa, Chandler…"
                 className="form-input"
               />
             </FormField>

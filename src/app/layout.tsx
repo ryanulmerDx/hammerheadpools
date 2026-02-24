@@ -21,30 +21,30 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Pool Maintenance & Repair in Phoenix | Hammerhead Pools',
+  title: 'Pool Maintenance & Repair | Hammerhead Pools — Gilbert, Mesa, Chandler',
   description:
-    'Locally owned pool maintenance, green pool cleanups, and equipment repairs in Phoenix, Scottsdale, Mesa, Chandler, Gilbert & Tempe. Same-week service available.',
+    'Locally owned pool maintenance, green pool cleanups, and equipment repairs serving Gilbert, Mesa, Chandler, Queen Creek, Scottsdale & Tempe. Same-week service available.',
   keywords: [
-    'pool maintenance Phoenix',
-    'pool service Scottsdale',
-    'pool cleaning Mesa',
-    'pool repair Chandler',
-    'green pool cleanup Phoenix',
-    'weekly pool service Arizona',
+    'pool maintenance Gilbert AZ',
+    'pool service Mesa AZ',
+    'pool cleaning Chandler AZ',
+    'pool repair Queen Creek',
+    'green pool cleanup Gilbert',
+    'weekly pool service East Valley',
     'Hammerhead Pools',
   ],
   openGraph: {
-    title: 'Pool Maintenance & Repair in Phoenix | Hammerhead Pools',
+    title: 'Pool Maintenance & Repair | Hammerhead Pools — Gilbert, Mesa, Chandler',
     description:
-      'Locally owned pool maintenance, cleanups, and repairs across the Phoenix Valley. Same-week service available.',
+      'Locally owned pool maintenance, cleanups, and repairs across Gilbert, Mesa, Chandler & Queen Creek. Same-week service available.',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pool Maintenance & Repair in Phoenix | Hammerhead Pools',
+    title: 'Pool Maintenance & Repair | Hammerhead Pools — Gilbert, Mesa, Chandler',
     description:
-      'Locally owned pool maintenance, cleanups, and repairs across the Phoenix Valley. Same-week service available.',
+      'Locally owned pool maintenance, cleanups, and repairs across Gilbert, Mesa, Chandler & Queen Creek. Same-week service available.',
   },
 };
 

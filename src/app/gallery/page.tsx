@@ -84,8 +84,8 @@ export default function GalleryPage() {
             className="mt-4 max-w-lg text-base"
             style={{ color: 'rgba(224,242,254,0.6)', fontFamily: 'var(--font-inter)' }}
           >
-            Every transformation below is a real HammerHead job in the Phoenix
-            valley. Before on the left. After on the right. No touch-ups.
+            Every transformation below is a real HammerHead job in the East Valley.
+            Before on the left. After on the right. No touch-ups.
           </p>
         </div>
       </section>

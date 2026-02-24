@@ -56,7 +56,7 @@ export default function AboutPage() {
               style={{ color: 'rgba(224,242,254,0.65)', fontFamily: 'var(--font-inter)' }}
             >
               HammerHead Pools is a locally-owned pool maintenance and repair
-              company serving the greater Phoenix valley area. We&apos;re not a
+              company serving Gilbert, Mesa, Chandler, and the East Valley. We&apos;re not a
               big corporate franchise — we&apos;re your neighbor, and we treat
               your pool like it&apos;s our own.
             </p>

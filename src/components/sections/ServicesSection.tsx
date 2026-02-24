@@ -89,7 +89,7 @@ export function ServicesSection() {
             className="text-sm"
             style={{ color: 'rgba(224,242,254,0.5)', fontFamily: 'var(--font-inter)' }}
           >
-            Serving Phoenix, Scottsdale, Mesa &amp; more
+            Serving Gilbert, Mesa, Chandler &amp; more
           </p>
         </div>
       </div>

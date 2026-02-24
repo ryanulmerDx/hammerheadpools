@@ -78,7 +78,7 @@ export function HeroSection() {
           className="mb-5 text-xs font-semibold tracking-[0.35em] uppercase text-water-cyan"
           style={{ fontFamily: 'var(--font-outfit)' }}
         >
-          HammerHead Pools · Phoenix Valley
+          HammerHead Pools · East Valley, AZ
         </p>
 
         {/* Headline */}
@@ -87,7 +87,7 @@ export function HeroSection() {
             className="font-heading font-extrabold leading-tight tracking-tight text-white max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             style={{ fontFamily: 'var(--font-outfit)' }}
           >
-            Phoenix Pool Maintenance &amp; Repairs
+            East Valley Pool Maintenance &amp; Repairs
             <span
               className="block text-gradient-water mt-1"
               style={{ paddingBottom: '0.05em' }}
@@ -104,7 +104,7 @@ export function HeroSection() {
           style={{ color: 'rgba(224,242,254,0.80)', fontFamily: 'var(--font-inter)' }}
         >
           Weekly service, green pool cleanups, and equipment repairs across
-          Phoenix, Scottsdale &amp; Mesa.
+          Gilbert, Mesa, Chandler &amp; Queen Creek.
         </p>
 
         {/* CTAs */}

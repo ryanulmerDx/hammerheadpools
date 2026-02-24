@@ -36,11 +36,11 @@ export const siteConfig = {
     { label: 'Licensed & Insured*' }, // * Remove asterisk once confirmed
     { label: 'Locally Owned' },
     { label: '5-Star Service' }, // Add link to reviews when available
-    { label: 'Serving Phoenix Area' },
+    { label: 'Serving the East Valley' },
   ] as TrustItem[],
 
   // ── Service areas (Local SEO) ──────────────────────────────────────────────
-  serviceAreas: ['Phoenix', 'Scottsdale', 'Mesa', 'Chandler', 'Gilbert', 'Tempe'],
+  serviceAreas: ['Gilbert', 'Mesa', 'Chandler', 'Queen Creek', 'Scottsdale', 'Tempe'],
 
   // ── Services ──────────────────────────────────────────────────────────────
   services: [
@@ -167,10 +167,10 @@ export const siteConfig = {
   // ── Why Choose Hammerhead ──────────────────────────────────────────────────
   whyChoose: [
     'Same-week service available — no long wait lists',
-    'Locally owned and operated in the Phoenix Valley',
+    'Locally owned and operated in the East Valley',
     'Responsive communication — real answers, fast',
     'Transparent pricing with no surprise charges',
-    'Serving Phoenix, Scottsdale, Mesa, Chandler, Gilbert & Tempe',
+    'Serving Gilbert, Mesa, Chandler, Queen Creek & more',
     '$50 cartridge filter clean special',
   ],
 
