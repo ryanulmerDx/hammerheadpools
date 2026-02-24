@@ -5,11 +5,7 @@ export const alt = 'HammerHead Pools — Pool Maintenance & Repair in Phoenix';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-export default async function OGImage() {
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : 'http://localhost:3000';
-
+export default function OGImage() {
   return new ImageResponse(
     (
       <div
@@ -38,31 +34,6 @@ export default async function OGImage() {
             background: 'radial-gradient(ellipse, rgba(34,211,238,0.18) 0%, transparent 70%)',
           }}
         />
-
-        {/* Logo circle */}
-        <div
-          style={{
-            width: '140px',
-            height: '140px',
-            borderRadius: '50%',
-            background: 'white',
-            marginBottom: '36px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            overflow: 'hidden',
-            boxShadow: '0 0 60px rgba(34,211,238,0.3)',
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`${baseUrl}/logo-mascot.webp`}
-            width={140}
-            height={140}
-            alt=""
-            style={{ objectFit: 'cover', objectPosition: 'top' }}
-          />
-        </div>
 
         {/* Wordmark */}
         <div
